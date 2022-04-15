@@ -34,11 +34,12 @@ app.post("/signup", (req, res) => {
   user.save((err) => {
     if (err) {
       if (err.code === 11000) {
-        const message = `Duplicate ${Object.keys(err.keyValue)} entered`;
+        // const message = `Duplicate ${Object.keys(err.keyValue)} entered`;
+        const message = `User Email Already Existed`;
         res.send({ message });
       }
     } else {
-      res.send({ message: "sucessfull", user: user });
+      res.send({ message: "Registration Sucessfull", user: user });
     }
   });
 });
